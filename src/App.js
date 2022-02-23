@@ -9,7 +9,8 @@ function App() {
   let [글제목 , 글제목변경] = useState(['남자 코트 추천', '감자수제비 맛집', '리액스스터디']);
   let [따봉, 따봉변경] = useState(0);
   let posts = '강남 고기 맛집';
-  
+
+  let [modal, modal변경] = useState(false);
   // function 제목바꾸기(){
   //   var newArray = [...글제목];
   //   newArray = newArray.sort((a,b)=>{ return (a<b)?-1:(a==b)?0:1;});
@@ -36,8 +37,14 @@ function App() {
         <p>2월 17일 발행</p>
         <hr/>
       </div>
+      <button onClick={()=>{modal변경(!modal)}}>버튼</button>
 
-      <Modal />
+      {
+        modal === true
+        ? <Modal/>
+        : null
+      }
+
 
     </div>
   );
