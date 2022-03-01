@@ -11,6 +11,17 @@ function App() {
   let posts = '강남 고기 맛집';
 
   let [modal, modal변경] = useState(false);
+
+
+  // map() 함수
+  // var 어레이 = [2,3,4];
+
+  // var 뉴어레이 = 어레이.map(function(a){
+  //   return a * 2
+  // });
+
+
+
   // function 제목바꾸기(){
   //   var newArray = [...글제목];
   //   newArray = newArray.sort((a,b)=>{ return (a<b)?-1:(a==b)?0:1;});
@@ -27,16 +38,17 @@ function App() {
         <p>2월 17일 발행</p>
         <hr/>
       </div>
-      <div className='list'>
-        <h3> { 글제목[1] } </h3>
-        <p>2월 17일 발행</p>
-        <hr/>
-      </div>
-      <div className='list'>
-        <h3> { 글제목[2] } </h3>
-        <p>2월 17일 발행</p>
-        <hr/>
-      </div>
+      {
+        글제목.map(function (a) {
+          return (
+            <div className='list'>
+              <h3> {a} <span onClick={() => { 따봉변경(따봉 + 1) }}>👍</span>{따봉}</h3>
+              <p>2월 17일 발행</p>
+              <hr />
+            </div>
+          )
+        })
+      }
       <button onClick={()=>{modal변경(!modal)}}>버튼</button>
 
       {
